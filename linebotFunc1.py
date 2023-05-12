@@ -6,8 +6,9 @@ from linebot import  LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage,TextSendMessage, ImageSendMessage, StickerSendMessage, LocationSendMessage, QuickReply, QuickReplyButton, MessageAction
 
-line_bot_api = LineBotApi('Xa+vx4IofVDjXzedZudsc4TKkBnRcY36uLJrPknmIQmu5X+okTHK7jFG4msQCAWUaV1bxkPyLlpleaQC0dPKJOr0Dl2Q0+V4GZfFXMR3Q8PzUQB6WDVHILGfVa1csaPkufB5uaZSGrdpXXZDQytB4gdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('f4e663cd02bb7e600e9351fefdd1c7f9')
+line_bot_api = LineBotApi(os.getenv('CHANNEL_ACCESS_TOKEN'))
+# Channel Secret
+handler = WebhookHandler(os.getenv('CHANNEL_SECRET'))
 
 @app.route("/callback", methods=['POST'])
 def callback():
